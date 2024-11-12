@@ -1,6 +1,6 @@
 {
 	"name": "eslint-plugin-dprintjs",
-	"version": "0.4.3",
+	"version": "0.4.4",
 	"packageManager": "pnpm@8.15.4",
 	"author": "cbbfcd",
 	"description": "<Fork> Integrate dprint into eslint.",
@@ -53,9 +53,9 @@
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
-		"@dprint/dockerfile": "^0.3.0",
+		"@dprint/dockerfile": "0.3.2",
 		"@dprint/formatter": "^0.4.1",
-		"@dprint/json": "^0.19.1",
+		"@dprint/json": "^0.19.4",
 		"@dprint/markdown": "^0.17.8",
 		"@dprint/toml": "^0.6.3",
 		"@dprint/typescript": "^0.93.2",

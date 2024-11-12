@@ -1,6 +1,6 @@
 import fs from "node:fs";
 
-import { getBuffer } from "@dprint/dockerfile";
+import { getPath as getDockerFilePath } from "@dprint/dockerfile";
 import type {
 	Formatter as DprintFormatter,
 	GlobalConfiguration,
@@ -58,7 +58,7 @@ export class Formatter {
 			pluginConfig.markdown,
 		);
 		this.dockerfile = createFormatter(
-			getBuffer(),
+			getDockerFilePath(),
 			globalConfig,
 			pluginConfig.dockerfile,
 		);

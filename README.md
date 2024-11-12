@@ -1,15 +1,15 @@
-# eslint-plugin-dprint-integration
+# eslint-plugin-dprintjs
 
-[![NPM version](https://img.shields.io/npm/v/eslint-plugin-dprint-integration?color=a1b858&label=)](https://www.npmjs.com/package/eslint-plugin-dprint-integration)
+[![NPM version](https://img.shields.io/npm/v/eslint-plugin-dprintjs?color=a1b858&label=)](https://www.npmjs.com/package/eslint-plugin-dprintjs)
 
 Make dprint work with eslint. Works perfectly with virtual files (like codeblocks in markdown).
 
 ## 📦 Installation
 
 ```bash
-$ npm install eslint-plugin-dprint-integration -D
-$ yarn add eslint-plugin-dprint-integration -D
-$ pnpm add eslint-plugin-dprint-integration -D
+$ npm install eslint-plugin-dprintjs -D
+$ yarn add eslint-plugin-dprintjs -D
+$ pnpm add eslint-plugin-dprintjs -D
 ```
 
 ## 🚀 Usage
@@ -21,9 +21,9 @@ Add these line to your eslintrc:
 ```ts
 // .eslintrc.js
 module.exports = {
-	plugins: ["dprint-integration"],
+	plugins: ["dprintjs"],
 	rules: {
-		"dprint-integration/dprint": "error",
+		"dprintjs/dprint": "error",
 	},
 };
 ```
@@ -35,7 +35,7 @@ Or:
 ```ts
 // .eslintrc.js
 module.exports = {
-	extends: ["plugin:dprint-integration/recommended"],
+	extends: ["plugin:dprintjs/recommended"],
 };
 ```
 
@@ -44,7 +44,7 @@ To turn off the conflicting stylish eslint rules (like eslint-config-prettier), 
 ```ts
 // .eslintrc.js
 module.exports = {
-	extends: ["plugin:dprint-integration/disable-conflict"],
+	extends: ["plugin:dprintjs/disable-conflict"],
 };
 ```
 
@@ -55,9 +55,9 @@ You can pass config to the plugin:
 ```ts
 // .eslintrc.js
 module.exports = {
-	plugins: ["dprint-integration"],
+	plugins: ["dprintjs"],
 	rules: {
-		"dprint-integration/dprint": [
+		"dprintjs/dprint": [
 			"error",
 			// Global Config (will pass to the dprint formatter directly): Available at https://dprint.dev/config/
 			{
@@ -87,9 +87,9 @@ If you want, you can use `dprint.json`:
 ```ts
 // .eslintrc.js
 module.exports = {
-	plugins: ["dprint-integration"],
+	plugins: ["dprintjs"],
 	rules: {
-		"dprint-integration/dprint": [
+		"dprintjs/dprint": [
 			"error",
 			// Global Config (will pass to the dprint formatter directly): Available at https://dprint.dev/config/
 			{

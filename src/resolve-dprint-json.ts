@@ -1,7 +1,7 @@
 import { dirname, join } from "node:path";
 
 import { defu } from "defu";
-import { findUpSync } from "find-up";
+import findup from "find-up";
 
 import { omit, pick, readJson } from "./utils";
 
@@ -30,7 +30,7 @@ function _resolveDprintJson(
 	if (path && visitedPaths.has(path)) {
 		throw new Error(`Circular extends: ${path}.`);
 	}
-	const dprintJsonFile = path ?? findUpSync(DPRINT_JSON_FILES);
+	const dprintJsonFile = path ?? findup.sync(DPRINT_JSON_FILES);
 	if (!dprintJsonFile) {
 		return undefined;
 	}

@@ -178,4 +178,4 @@ export default {
 			},
 		},
 	},
-} satisfies ESLint.Plugin;
+} as ESLint.Plugin;

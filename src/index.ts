@@ -70,7 +70,7 @@ export default {
 		dprint: {
 			meta: {
 				docs: {
-					url: "https://github.com/so1ve/eslint-plugin-dprint-integration#options",
+					url: "https://github.com/cbbfcd/eslint-plugin-dprint#options",
 				},
 				type: "layout",
 				fixable: "code",

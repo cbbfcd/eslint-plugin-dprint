@@ -1,7 +1,6 @@
 import fs from "node:fs";
-import path from "node:path";
 
-import { getPath as getDockerfilePath } from "@dprint/dockerfile";
+import { getBuffer } from "@dprint/dockerfile";
 import type {
 	Formatter as DprintFormatter,
 	GlobalConfiguration,
@@ -9,7 +8,7 @@ import type {
 import { createFromBuffer } from "@dprint/formatter";
 import { getPath as getJsonPath } from "@dprint/json";
 import { getPath as getMarkdownPath } from "@dprint/markdown";
-import { getBuffer as getTomlBuffer } from "@dprint/toml";
+import { getPath as getTomlBuffer } from "@dprint/toml";
 import { getPath as getTypescriptPath } from "@dprint/typescript";
 
 import type { PluginConfig } from "./types";
@@ -59,23 +58,17 @@ export class Formatter {
 			pluginConfig.markdown,
 		);
 		this.dockerfile = createFormatter(
-			getDockerfilePath(),
+			getBuffer(),
 			globalConfig,
 			pluginConfig.dockerfile,
 		);
 		this.malva = createFormatter(
-			path.join(
-				path.dirname(require.resolve("dprint-plugin-malva")),
-				"./plugin.wasm",
-			),
+			require.resolve("dprint-plugin-malva"),
 			globalConfig,
 			pluginConfig.malva,
 		);
 		this.markup = createFormatter(
-			path.join(
-				path.dirname(require.resolve("dprint-plugin-markup")),
-				"./plugin.wasm",
-			),
+			require.resolve("dprint-plugin-markup/plugin.wasm"),
 			globalConfig,
 			pluginConfig.markup,
 		);
@@ -92,25 +85,25 @@ export class Formatter {
 		}
 		switch (language) {
 			case "typescript": {
-				return this.typescript.formatText(filename, source);
+				return this.typescript.formatText({ filePath: filename, fileText: source });
 			}
 			case "toml": {
-				return this.toml.formatText(filename, source);
+				return this.toml.formatText({ filePath: filename, fileText: source });
 			}
 			case "json": {
-				return this.json.formatText(filename, source);
+				return this.json.formatText({ filePath: filename, fileText: source });
 			}
 			case "markdown": {
-				return this.markdown.formatText(filename, source);
+				return this.markdown.formatText({ filePath: filename, fileText: source });
 			}
 			case "dockerfile": {
-				return this.dockerfile.formatText(filename, source);
+				return this.dockerfile.formatText({ filePath: filename, fileText: source });
 			}
 			case "malva": {
-				return this.malva.formatText(filename, source);
+				return this.malva.formatText({ filePath: filename, fileText: source });
 			}
 			case "markup": {
-				return this.markup.formatText(filename, source);
+				return this.markup.formatText({ filePath: filename, fileText: source });
 			}
 		}
 	}
